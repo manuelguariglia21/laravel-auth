@@ -26,4 +26,5 @@ Route::middleware('auth')
     ->group(function(){
         //qui inserisco le rotte, tutte le rotte qui dentro ereditano le informazioni scritte prima.
         Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('/posts', 'PostController');
     });
