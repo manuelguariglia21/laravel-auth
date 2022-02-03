@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
@@ -26,7 +25,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
+
     }
 
     /**
@@ -36,8 +36,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $data = $request->all();
+
+        $new_post = new Post();
+        $data['slug'] = Post::generateSlug($data['title']);
+        $new_post->fill($data);
+        $new_post->save();
+        return redirect()->route('admin.posts.show', $new_post );
     }
 
     /**
@@ -48,7 +54,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        if($post){
+            return view('admin.posts.show', compact('post'));
+        }
+        abort(404, 'errore nella ricerca del post');
     }
 
     /**

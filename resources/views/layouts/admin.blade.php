@@ -35,7 +35,10 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li>
-                            <a href="{{route('admin.posts.index')}}">Posts</a>
+                            <a href="{{route('admin.posts.index')}}" class="mr-2">Posts</a>
+                        </li>  
+                        <li>
+                            <a href="{{route('admin.posts.create')}}">Create New Post</a>
                         </li>  
                         @endauth
                     </ul>

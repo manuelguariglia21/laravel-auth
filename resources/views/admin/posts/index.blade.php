@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -22,7 +22,9 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->description}}</td>
                     <td>{{$post->slug}}</td>
-                    <td>XXX</td>
+                    <td>
+                      <a href="{{route('admin.posts.show', $post->id)}}">Show</a>
+                    </td>
                 </tr>
             @endforeach
     
