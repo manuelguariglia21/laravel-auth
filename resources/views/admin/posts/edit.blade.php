@@ -15,7 +15,8 @@
 
           <div class="form-group">
             <label for="descriptiom">Description</label>
-            <textarea type="text" class="form-control" name="description" id="description" placeholder="Enter description">{{$post->description}}</textarea>
+            <textarea type="text" class="form-control" name="description" id="description" placeholder="Enter description">{{$post->description}}
+            </textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Aggiorna Post</button>

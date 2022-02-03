@@ -25,6 +25,12 @@
                     <td>
                       <a href="{{route('admin.posts.show', $post->id)}}">Show</a>
                       <a href="{{route('admin.posts.edit', $post->id)}}">Edit</a>
+                      <form onsubmit="return confirm('Confermi eliminazione di: {{$post->title}}')" action="{{ route('admin.posts.destroy', $post) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn">Delete</button></td>
+                      </form>
                     </td>
                 </tr>
             @endforeach
